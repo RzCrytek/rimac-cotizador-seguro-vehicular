@@ -1,22 +1,20 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './styles/app.scss';
+
+import HomePage from './pages/Home';
+import PlanPage from './pages/Plan';
+import ThanksPage from './pages/Thanks';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/arma-tu-plan" component={PlanPage} />
+        <Route exact path="/gracias" component={ThanksPage} />
+      </Switch>
+    </Router>
   );
 }
 

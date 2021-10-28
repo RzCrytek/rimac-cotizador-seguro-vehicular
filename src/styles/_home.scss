@@ -1,0 +1,88 @@
+#home {
+  display: flex;
+
+  .col {
+    padding-top: 64px;
+  }
+
+  .information {
+    background: $c-4 url('../images/home-information-bg.jpg') top center
+      no-repeat;
+    background-size: 100% auto;
+    width: 39.412%;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 320px;
+      height: 100%;
+      padding: 32px 0 40px;
+      margin-inline: auto;
+
+      picture {
+        display: block;
+        margin-bottom: 24px;
+      }
+
+      .sub-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $gray-1;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: 400;
+        color: $gray-1;
+        line-height: 48px;
+        margin: 0 0 16px;
+      }
+
+      .description {
+        max-width: 288px;
+        width: 100%;
+        font-size: 14px;
+        color: $gray-2;
+        line-height: 24px;
+        margin: 0 0 16px;
+      }
+
+      .copy {
+        font-size: 12px;
+        color: $gray-3;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        margin-top: auto;
+        margin-left: -32px;
+      }
+    }
+  }
+
+  .data {
+    width: 60.588%;
+
+    &-content {
+      max-width: 288px;
+      width: 100%;
+      padding-top: 48px;
+      margin-inline: auto;
+
+      h2 {
+        font-size: 28px;
+        color: $gray-1;
+        line-height: 36px;
+        font-weight: 400;
+        margin-bottom: 24px;
+      }
+
+      .form-check {
+        margin: 24px 0 40px;
+      }
+
+      .btn {
+        width: 192px;
+      }
+    }
+  }
+}

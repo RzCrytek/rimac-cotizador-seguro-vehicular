@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1184px;
+  width: 100%;
+  padding-inline: 32px;
+  margin-inline: auto;
+}
+
+.c-red {
+  color: $red-1;
+}
