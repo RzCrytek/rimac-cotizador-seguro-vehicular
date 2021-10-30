@@ -35,7 +35,7 @@ const HomePage = () => {
             <form action="">
               <div className="form-group form-document">
                 <select
-                  className="form-control"
+                  className="form-select"
                   name="document_type"
                   defaultValue="DNI"
                 >
@@ -74,15 +74,17 @@ const HomePage = () => {
               <div className="form-check">
                 <input id="term" type="checkbox" name="terms" />
                 <label htmlFor="term">
-                  Acepto la{' '}
-                  <a href="#!" target="_blank" rel="noreferrer">
-                    Política de Protección de Datos Personales
-                  </a>{' '}
-                  y los{' '}
-                  <a href="#!" target="_blank" rel="noreferrer">
-                    Términos y Condiciones
-                  </a>
-                  .
+                  <span>
+                    Acepto la{' '}
+                    <a href="#!" target="_blank" rel="noreferrer">
+                      Política de Protección de Datos Personales
+                    </a>{' '}
+                    y los{' '}
+                    <a href="#!" target="_blank" rel="noreferrer">
+                      Términos y Condiciones
+                    </a>
+                    .
+                  </span>
                 </label>
               </div>
 

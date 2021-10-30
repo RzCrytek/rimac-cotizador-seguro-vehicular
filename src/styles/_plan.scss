@@ -1,0 +1,226 @@
+#plan {
+  display: flex;
+
+  .container {
+    display: flex;
+  }
+
+  .aside {
+    position: relative;
+    background-color: $gray-7;
+    max-width: 320px;
+    width: 100%;
+    padding-top: 52px;
+    margin-right: 8%;
+
+    &:before {
+      content: '';
+      // width: 30%;
+      // height: 100vh;
+      // position: absolute;
+      // left: 0;
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $gray-7;
+      z-index: -1;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 44px;
+
+        .circle {
+          display: inline-block;
+          background-color: transparent;
+          width: 24px;
+          height: 24px;
+          line-height: 21px;
+          font-size: 12px;
+          font-weight: 700;
+          color: $gray-4;
+          text-align: center;
+          border-radius: 50%;
+          border: 1px solid $gray-4;
+        }
+
+        .text {
+          font-size: 16px;
+          line-height: 24px;
+          color: $gray-3;
+          letter-spacing: 0.2px;
+          margin-left: 16px;
+        }
+
+        &.active {
+          .circle {
+            background-color: $acian-2;
+            color: $white;
+            border-color: $acian-2;
+          }
+
+          .text {
+            color: $gray-1;
+          }
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 48px 0 25%;
+
+    .back {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+
+      a {
+        color: $gray-3;
+        text-decoration: none;
+        letter-spacing: 0.6px;
+      }
+
+      img {
+        margin-right: 16px;
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      color: $gray-1;
+      margin: 24px 0 8px;
+    }
+
+    .info {
+      font-family: $font-roboto;
+      font-size: 16px;
+      color: $gray-2;
+      line-height: 28px;
+      margin: 0;
+    }
+
+    .card-data {
+      display: flex;
+      justify-content: space-between;
+      max-width: 704px;
+      width: 100%;
+      margin: 10px 0 55px;
+
+      &-information {
+        max-width: 384px;
+        width: 100%;
+        padding-bottom: 43px;
+        border-bottom: 1px solid $gray-5;
+        margin-right: 10%;
+
+        .car-info {
+          display: flex;
+          justify-content: space-between;
+          height: 172px;
+          border: 3px solid $gray-6;
+          border-radius: 12px;
+          padding-left: 32px;
+          padding-right: 20px;
+          margin: 20px 0 55px;
+
+          .plate-brand {
+            max-width: 192px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .plate {
+              font-family: $font-roboto;
+              font-size: 12px;
+              line-height: 20px;
+              color: $gray-3;
+              letter-spacing: 0.2px;
+              margin: 0;
+            }
+
+            .brand {
+              font-size: 20px;
+              font-weight: 400;
+              line-height: 28px;
+              color: $gray-1;
+              margin: 0;
+            }
+          }
+
+          picture {
+            display: flex;
+            align-items: flex-end;
+          }
+        }
+      }
+
+      &-amount {
+        max-width: 224px;
+        width: 100%;
+
+        .text-mount {
+          font-size: 12px;
+          font-weight: bold;
+          color: $gray-1;
+          line-height: 16px;
+          letter-spacing: 0.6px;
+          margin: 0;
+        }
+
+        .price {
+          font-size: 28px;
+          color: $gray-1;
+          line-height: 36px;
+          letter-spacing: -0.2px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid $gray-5;
+          margin: 10px 0 24px;
+
+          span {
+            font-family: $font-roboto;
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: $gray-2;
+            line-height: 20px;
+            letter-spacing: 0.2px;
+          }
+        }
+
+        .text-includes {
+          font-size: 16px;
+          color: $gray-1;
+          line-height: 24px;
+          letter-spacing: 0.2px;
+          margin: 0 0 12px;
+        }
+
+        ul {
+          padding-left: 20px;
+          margin: 0;
+
+          li {
+            list-style-image: url('../images/icons/check--green.svg');
+            font-size: 14px;
+            color: $gray-2;
+            line-height: 24px;
+            margin-bottom: 8px;
+          }
+        }
+
+        .btn {
+          width: 100%;
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}

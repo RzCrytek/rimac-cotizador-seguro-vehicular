@@ -10,18 +10,20 @@ const Header = ({ home }) => {
   return (
     <header id="header" className={home ? 'home' : ''}>
       <div className="container">
-        <Link to="/">
-          <picture>
-            <img src={Logo} alt="Logo Rimac" />
-          </picture>
-        </Link>
+        <div className="content">
+          <Link to="/">
+            <picture>
+              <img src={Logo} alt="Logo Rimac" />
+            </picture>
+          </Link>
 
-        <div className="options">
-          <p>¿Tienes alguna duda?</p>
-          <a href="tel:014116001" target="_blank" rel="noreferrer">
-            <img src={IconPhone} alt="Teléfono" />
-            (01) 411 6001
-          </a>
+          <div className="options">
+            <p>¿Tienes alguna duda?</p>
+            <a href="tel:014116001" target="_blank" rel="noreferrer">
+              <img src={IconPhone} alt="Teléfono" />
+              (01) 411 6001
+            </a>
+          </div>
         </div>
       </div>
     </header>

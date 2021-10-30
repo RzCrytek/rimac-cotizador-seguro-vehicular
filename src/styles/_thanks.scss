@@ -1,0 +1,61 @@
+#thanks {
+  display: flex;
+  align-items: center;
+  padding-block: 5%;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .image {
+    margin-right: 11.5%;
+
+    &:before {
+      content: '';
+      width: 30%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $gray-7;
+      z-index: -1;
+    }
+
+    picture {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .information {
+    max-width: 480px;
+    width: 100%;
+
+    h1 {
+      font-size: 36px;
+      color: $gray-1;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .description {
+      font-size: 16px;
+      font-weight: 300;
+      color: $gray-2;
+      line-height: 28px;
+      margin: 16px 0 40px;
+
+      a {
+        font-weight: 400;
+        color: $gray-2;
+        text-decoration: none;
+      }
+    }
+
+    .btn {
+      max-width: 633px;
+    }
+  }
+}
