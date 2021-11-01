@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Header from '../components/Header/Header';
+import { Header } from '../components';
+import FormPersonData from '../components/FormPersonData/FormPersonData';
+import useFetchUsers from '../hooks/useFetchUsers';
 
 import ImageCartGirl from '../images/home-information-cart-girl.svg';
 
 const HomePage = () => {
+  const users = useFetchUsers('https://jsonplaceholder.typicode.com/users');
+  const [user, setUser] = useState([]);
+
+  console.log('users:', users);
+  console.log('users:', users[0]);
+
+  useEffect(() => {
+    setUser(users[0]);
+  }, [users]);
+
+  const getData = () => {
+    const randomNumber = Math.round(Math.random() * 9);
+    setUser(users[randomNumber]);
+  };
+
   return (
     <div id="wrapper">
       <Header home />
@@ -31,65 +48,11 @@ const HomePage = () => {
         <section className="col data">
           <div className="data-content">
             <h2>Déjanos tus datos</h2>
+            <button className="btn-data" onClick={getData}>
+              Obtener otros datos
+            </button>
 
-            <form action="">
-              <div className="form-group form-document">
-                <select
-                  className="form-select"
-                  name="document_type"
-                  defaultValue="DNI"
-                >
-                  <option value="DNI">DNI</option>
-                  <option value="CE">CE</option>
-                </select>
-
-                <input
-                  className="form-control"
-                  type="text"
-                  name="document_number"
-                  placeholder="Nro. de doc"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="phone"
-                  placeholder="Celular"
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  className="form-control"
-                  type="text"
-                  name="placa"
-                  placeholder="Placa"
-                  required
-                />
-              </div>
-
-              <div className="form-check">
-                <input id="term" type="checkbox" name="terms" />
-                <label htmlFor="term">
-                  <span>
-                    Acepto la{' '}
-                    <a href="#!" target="_blank" rel="noreferrer">
-                      Política de Protección de Datos Personales
-                    </a>{' '}
-                    y los{' '}
-                    <a href="#!" target="_blank" rel="noreferrer">
-                      Términos y Condiciones
-                    </a>
-                    .
-                  </span>
-                </label>
-              </div>
-
-              <button className="btn">COTÍZALO</button>
-            </form>
+            <FormPersonData user={user} />
           </div>
         </section>
       </main>

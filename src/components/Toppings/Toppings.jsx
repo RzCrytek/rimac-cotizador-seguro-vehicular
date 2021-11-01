@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Toppings.scss';
 
@@ -6,7 +6,70 @@ import IconLlanta from '../../images/icons/llanta.svg';
 import IconChoque from '../../images/icons/choque.svg';
 import IconAtropello from '../../images/icons/atropello.svg';
 
-const Toppings = () => {
+const initialToppings = {
+  tire: {
+    status: false,
+    amount: 15,
+  },
+  crash: {
+    status: false,
+    amount: 20,
+  },
+  hitRun: {
+    status: false,
+    amount: 50,
+  },
+};
+
+// const initialToppings2 = [
+//   {
+//     tire: {
+//       status: false,
+//       amount: 15,
+//     },
+//   },
+//   {
+//     crash: {
+//       status: false,
+//       amount: 20,
+//     },
+//   },
+//   {
+//     hitRun: {
+//       status: false,
+//       amount: 50,
+//     },
+//   },
+// ];
+
+const Toppings = ({ setMonthlyAmount, exceeded }) => {
+  const [toppings, setToppings] = useState(initialToppings);
+
+  // useEffect(() => {
+  //   const tire = toppings['tire'];
+
+  //   if (tire.status) {
+  //     setMonthlyAmount((prev) => prev + tire.amount);
+  //   }
+  // }, []);
+
+  console.log('exceeded:', exceeded);
+
+  const handleToppings = (name) => {
+    const data = toppings[name];
+
+    setToppings({
+      ...toppings,
+      [name]: { ...toppings[name], status: !data.status },
+    });
+
+    setMonthlyAmount((prev) =>
+      toppings[name].status ? prev - data.amount : prev + data.amount
+    );
+  };
+
+  console.log('toppings:', toppings);
+
   return (
     <div id="toppings">
       <h3>Agrega o quita coberturas</h3>
@@ -37,9 +100,16 @@ const Toppings = () => {
 
             <div className="header-title">
               <p className="title">Llanta robada</p>
-              <button className="option remove-coverage">
-                <i className="ico ico-remove"></i>
-                QUITAR
+              <button
+                className="option remove-coverage"
+                onClick={() => handleToppings('tire')}
+              >
+                <i
+                  className={`ico ico-${
+                    toppings['tire'].status ? 'remove' : 'add'
+                  }`}
+                ></i>
+                {toppings['tire'].status ? 'QUITAR' : 'AGREGAR'}
               </button>
             </div>
           </div>
@@ -55,23 +125,32 @@ const Toppings = () => {
           </div>
         </div>
 
-        <div className="accordion">
-          <div className="accordion-header">
-            <div className="icon">
-              <img src={IconChoque} alt="Llanta" />
+        {!exceeded && (
+          <div className="accordion">
+            <div className="accordion-header">
+              <div className="icon">
+                <img src={IconChoque} alt="Llanta" />
+              </div>
+
+              <div className="header-title">
+                <p className="title">Choque y/o pasarte la luz roja</p>
+                <button
+                  className="option add-coverage"
+                  onClick={() => handleToppings('crash')}
+                >
+                  <i
+                    className={`ico ico-${
+                      toppings['crash'].status ? 'remove' : 'add'
+                    }`}
+                  ></i>
+                  {toppings['crash'].status ? 'QUITAR' : 'AGREGAR'}
+                </button>
+              </div>
             </div>
 
-            <div className="header-title">
-              <p className="title">Choque y/o pasarte la luz roja</p>
-              <button className="option add-coverage">
-                <i className="ico ico-add"></i>
-                AGREGAR
-              </button>
-            </div>
+            <div className="accordion-body"></div>
           </div>
-
-          <div className="accordion-body"></div>
-        </div>
+        )}
 
         <div className="accordion">
           <div className="accordion-header">
@@ -81,9 +160,16 @@ const Toppings = () => {
 
             <div className="header-title">
               <p className="title">Atropello en la vía Evitamiento </p>
-              <button className="option">
-                <i className="ico ico-add"></i>
-                AGREGAR
+              <button
+                className="option"
+                onClick={() => handleToppings('hitRun')}
+              >
+                <i
+                  className={`ico ico-${
+                    toppings['hitRun'].status ? 'remove' : 'add'
+                  }`}
+                ></i>
+                {toppings['hitRun'].status ? 'QUITAR' : 'AGREGAR'}
               </button>
             </div>
           </div>

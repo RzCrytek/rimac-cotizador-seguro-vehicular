@@ -1,5 +1,11 @@
 .form-group {
   margin-bottom: 16px;
+
+  &.error {
+    .form-control {
+      border-color: $red-1;
+    }
+  }
 }
 
 .form-control {
@@ -51,6 +57,12 @@
 .form-check {
   display: flex;
   margin-bottom: 16px;
+
+  &.error {
+    label:before {
+      border-color: $red-1;
+    }
+  }
 
   input {
     position: absolute;

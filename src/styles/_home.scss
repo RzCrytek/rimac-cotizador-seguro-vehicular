@@ -74,7 +74,17 @@
         color: $gray-1;
         line-height: 36px;
         font-weight: 400;
-        margin-bottom: 24px;
+        margin-bottom: 8px;
+      }
+
+      .btn-data {
+        background-color: transparent;
+        color: $acian-2;
+        border: 0;
+        border-bottom: 1px solid $acian-2;
+        padding: 0;
+        margin: 0 0 24px;
+        cursor: pointer;
       }
 
       .form-check {

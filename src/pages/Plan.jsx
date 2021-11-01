@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { usePlanContext } from '../context/PlanContext';
 
 import Layout from './_layout';
 import { Counter, Toppings } from '../components';
@@ -7,7 +9,22 @@ import { Counter, Toppings } from '../components';
 import IcoBack from '../images/icons/back.svg';
 import ImagePerson from '../images/person.png';
 
+// const initialToppings = [
+//   {},
+// ]
+
 const PlanPage = () => {
+  const { plan } = usePlanContext();
+
+  const [monthlyAmount, setMonthlyAmount] = useState(20);
+  const [exceeded, setExceeded] = useState(false);
+
+  const handleWant = () => {
+    console.log('want');
+    const abc = [{ ...plan, monthlyAmount }];
+    console.log('abc', abc);
+  };
+
   return (
     <Layout pageId="plan">
       <div className="container">
@@ -35,7 +52,7 @@ const PlanPage = () => {
             </div>
 
             <h1>
-              ¡Hola, <span className="c-red">Juan!</span>
+              ¡Hola, <span className="c-red">{plan?.name}!</span>
             </h1>
 
             <p className="info">Conoce las coberturas para tu plan</p>
@@ -45,7 +62,7 @@ const PlanPage = () => {
                 <div className="car-info">
                   <div className="plate-brand">
                     <div className="plate-brand-content">
-                      <p className="plate">Placa: C2U-114</p>
+                      <p className="plate">Placa: {plan?.placa}</p>
                       <h3 className="brand">Wolkswagen 2019 Golf</h3>
                     </div>
                   </div>
@@ -55,14 +72,14 @@ const PlanPage = () => {
                   </picture>
                 </div>
 
-                <Counter />
+                <Counter min={12500} max={16500} setExceeded={setExceeded} />
               </div>
 
               <div className="card-data-amount">
                 <p className="text-mount">MONTO</p>
 
                 <h2 className="price">
-                  $35.00 <span>mensuales</span>
+                  ${monthlyAmount.toFixed(2)} <span>mensuales</span>
                 </h2>
 
                 <p className="text-includes">El precio incluye:</p>
@@ -73,13 +90,13 @@ const PlanPage = () => {
                   <li>Aros gratis</li>
                 </ul>
 
-                <button className="btn" type="button">
+                <button className="btn" type="button" onClick={handleWant}>
                   LO QUIERO
                 </button>
               </div>
             </div>
 
-            <Toppings />
+            <Toppings setMonthlyAmount={setMonthlyAmount} exceeded={exceeded} />
           </div>
         </div>
       </div>
