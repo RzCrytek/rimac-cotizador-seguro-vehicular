@@ -27,7 +27,6 @@ const FormPersonData = ({ user }) => {
   }, [setValue, user]);
 
   const onSubmit = (data) => {
-    console.log('dataForm', data);
     setUserPlan(data);
     history.push('/arma-tu-plan');
   };

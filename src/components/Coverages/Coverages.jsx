@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import './Coverages.scss';
 
@@ -6,38 +6,7 @@ import IconLlanta from '../../images/icons/llanta.svg';
 import IconChoque from '../../images/icons/choque.svg';
 import IconAtropello from '../../images/icons/atropello.svg';
 
-// const initialToppings2 = [
-//   {
-//     tire: {
-//       status: false,
-//       amount: 15,
-//     },
-//   },
-//   {
-//     crash: {
-//       status: false,
-//       amount: 20,
-//     },
-//   },
-//   {
-//     hitRun: {
-//       status: false,
-//       amount: 50,
-//     },
-//   },
-// ];
-
 const Coverages = ({ coverages, setCoverages, setMonthlyAmount, exceeded }) => {
-  // useEffect(() => {
-  //   const tire = toppings['tire'];
-
-  //   if (tire.status) {
-  //     setMonthlyAmount((prev) => prev + tire.amount);
-  //   }
-  // }, []);
-
-  console.log('exceeded:', exceeded);
-
   const handleCoverages = (name) => {
     const data = coverages[name];
 
@@ -50,8 +19,6 @@ const Coverages = ({ coverages, setCoverages, setMonthlyAmount, exceeded }) => {
       coverages[name].status ? prev - data.amount : prev + data.amount
     );
   };
-
-  console.log('coverages:', coverages);
 
   return (
     <div id="coverages">

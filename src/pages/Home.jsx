@@ -10,9 +10,6 @@ const HomePage = () => {
   const users = useFetchUsers('https://jsonplaceholder.typicode.com/users');
   const [user, setUser] = useState([]);
 
-  console.log('users:', users);
-  console.log('users:', users[0]);
-
   useEffect(() => {
     setUser(users[0]);
   }, [users]);
