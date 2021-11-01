@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { PlanProvider } from './context/PlanContext';
+import { UserPlanProvider } from './context/UserPlanContext';
 
 import './styles/app.scss';
 
@@ -10,7 +10,7 @@ import ThanksPage from './pages/Thanks';
 
 function App() {
   return (
-    <PlanProvider>
+    <UserPlanProvider>
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/gracias" component={ThanksPage} />
         </Switch>
       </Router>
-    </PlanProvider>
+    </UserPlanProvider>
   );
 }
 

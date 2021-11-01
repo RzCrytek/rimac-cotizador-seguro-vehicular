@@ -1,25 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import './Toppings.scss';
+import './Coverages.scss';
 
 import IconLlanta from '../../images/icons/llanta.svg';
 import IconChoque from '../../images/icons/choque.svg';
 import IconAtropello from '../../images/icons/atropello.svg';
-
-const initialToppings = {
-  tire: {
-    status: false,
-    amount: 15,
-  },
-  crash: {
-    status: false,
-    amount: 20,
-  },
-  hitRun: {
-    status: false,
-    amount: 50,
-  },
-};
 
 // const initialToppings2 = [
 //   {
@@ -42,9 +27,7 @@ const initialToppings = {
 //   },
 // ];
 
-const Toppings = ({ setMonthlyAmount, exceeded }) => {
-  const [toppings, setToppings] = useState(initialToppings);
-
+const Coverages = ({ coverages, setCoverages, setMonthlyAmount, exceeded }) => {
   // useEffect(() => {
   //   const tire = toppings['tire'];
 
@@ -55,23 +38,23 @@ const Toppings = ({ setMonthlyAmount, exceeded }) => {
 
   console.log('exceeded:', exceeded);
 
-  const handleToppings = (name) => {
-    const data = toppings[name];
+  const handleCoverages = (name) => {
+    const data = coverages[name];
 
-    setToppings({
-      ...toppings,
-      [name]: { ...toppings[name], status: !data.status },
+    setCoverages({
+      ...coverages,
+      [name]: { ...coverages[name], status: !data.status },
     });
 
     setMonthlyAmount((prev) =>
-      toppings[name].status ? prev - data.amount : prev + data.amount
+      coverages[name].status ? prev - data.amount : prev + data.amount
     );
   };
 
-  console.log('toppings:', toppings);
+  console.log('coverages:', coverages);
 
   return (
-    <div id="toppings">
+    <div id="coverages">
       <h3>Agrega o quita coberturas</h3>
 
       <div className="header">
@@ -102,14 +85,14 @@ const Toppings = ({ setMonthlyAmount, exceeded }) => {
               <p className="title">Llanta robada</p>
               <button
                 className="option remove-coverage"
-                onClick={() => handleToppings('tire')}
+                onClick={() => handleCoverages('tire')}
               >
                 <i
                   className={`ico ico-${
-                    toppings['tire'].status ? 'remove' : 'add'
+                    coverages['tire'].status ? 'remove' : 'add'
                   }`}
                 ></i>
-                {toppings['tire'].status ? 'QUITAR' : 'AGREGAR'}
+                {coverages['tire'].status ? 'QUITAR' : 'AGREGAR'}
               </button>
             </div>
           </div>
@@ -136,14 +119,14 @@ const Toppings = ({ setMonthlyAmount, exceeded }) => {
                 <p className="title">Choque y/o pasarte la luz roja</p>
                 <button
                   className="option add-coverage"
-                  onClick={() => handleToppings('crash')}
+                  onClick={() => handleCoverages('crash')}
                 >
                   <i
                     className={`ico ico-${
-                      toppings['crash'].status ? 'remove' : 'add'
+                      coverages['crash'].status ? 'remove' : 'add'
                     }`}
                   ></i>
-                  {toppings['crash'].status ? 'QUITAR' : 'AGREGAR'}
+                  {coverages['crash'].status ? 'QUITAR' : 'AGREGAR'}
                 </button>
               </div>
             </div>
@@ -162,14 +145,14 @@ const Toppings = ({ setMonthlyAmount, exceeded }) => {
               <p className="title">Atropello en la vía Evitamiento </p>
               <button
                 className="option"
-                onClick={() => handleToppings('hitRun')}
+                onClick={() => handleCoverages('hitRun')}
               >
                 <i
                   className={`ico ico-${
-                    toppings['hitRun'].status ? 'remove' : 'add'
+                    coverages['hitRun'].status ? 'remove' : 'add'
                   }`}
                 ></i>
-                {toppings['hitRun'].status ? 'QUITAR' : 'AGREGAR'}
+                {coverages['hitRun'].status ? 'QUITAR' : 'AGREGAR'}
               </button>
             </div>
           </div>
@@ -181,4 +164,4 @@ const Toppings = ({ setMonthlyAmount, exceeded }) => {
   );
 };
 
-export default Toppings;
+export default Coverages;

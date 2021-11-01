@@ -1,5 +1,5 @@
 import Header from './Header/Header';
 import Counter from './Counter/Counter';
-import Toppings from './Toppings/Toppings';
+import Coverages from './Coverages/Coverages';
 
-export { Header, Counter, Toppings };
+export { Header, Counter, Coverages };

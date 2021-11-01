@@ -3,12 +3,12 @@ import { useHistory } from 'react-router';
 
 import { useForm } from 'react-hook-form';
 
-import { usePlanContext } from '../../context/PlanContext';
+import { useUserPlanContext } from '../../context/UserPlanContext';
 
 import { FormInput, FormSelect } from './Form';
 
 const FormPersonData = ({ user }) => {
-  const { setPlan } = usePlanContext();
+  const { setUserPlan } = useUserPlanContext();
   const history = useHistory();
 
   const {
@@ -28,7 +28,7 @@ const FormPersonData = ({ user }) => {
 
   const onSubmit = (data) => {
     console.log('dataForm', data);
-    setPlan(data);
+    setUserPlan(data);
     history.push('/arma-tu-plan');
   };
 

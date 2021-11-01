@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { usePlanContext } from '../context/PlanContext';
+import { useUserPlanContext } from '../context/UserPlanContext';
 
 import Layout from './_layout';
-import { Counter, Toppings } from '../components';
+import { Counter, Coverages } from '../components';
 
 import IcoBack from '../images/icons/back.svg';
 import ImagePerson from '../images/person.png';
 
-// const initialToppings = [
-//   {},
-// ]
+const initialCoverages = {
+  tire: {
+    status: false,
+    amount: 15,
+  },
+  crash: {
+    status: false,
+    amount: 20,
+  },
+  hitRun: {
+    status: false,
+    amount: 50,
+  },
+};
 
 const PlanPage = () => {
-  const { plan } = usePlanContext();
+  const { userPlan, setUserPlan } = useUserPlanContext();
 
   const [monthlyAmount, setMonthlyAmount] = useState(20);
   const [exceeded, setExceeded] = useState(false);
+  const [coverages, setCoverages] = useState(initialCoverages);
 
   const handleWant = () => {
-    console.log('want');
-    const abc = [{ ...plan, monthlyAmount }];
-    console.log('abc', abc);
+    const monthlyCoverages = { coverages: coverages, monthlyAmount };
+    setUserPlan({ ...userPlan, monthlyCoverages });
   };
 
   return (
@@ -52,7 +63,7 @@ const PlanPage = () => {
             </div>
 
             <h1>
-              ¡Hola, <span className="c-red">{plan?.name}!</span>
+              ¡Hola, <span className="c-red">{userPlan?.name}!</span>
             </h1>
 
             <p className="info">Conoce las coberturas para tu plan</p>
@@ -62,7 +73,7 @@ const PlanPage = () => {
                 <div className="car-info">
                   <div className="plate-brand">
                     <div className="plate-brand-content">
-                      <p className="plate">Placa: {plan?.placa}</p>
+                      <p className="plate">Placa: {userPlan?.placa}</p>
                       <h3 className="brand">Wolkswagen 2019 Golf</h3>
                     </div>
                   </div>
@@ -96,7 +107,12 @@ const PlanPage = () => {
               </div>
             </div>
 
-            <Toppings setMonthlyAmount={setMonthlyAmount} exceeded={exceeded} />
+            <Coverages
+              coverages={coverages}
+              setCoverages={setCoverages}
+              setMonthlyAmount={setMonthlyAmount}
+              exceeded={exceeded}
+            />
           </div>
         </div>
       </div>
