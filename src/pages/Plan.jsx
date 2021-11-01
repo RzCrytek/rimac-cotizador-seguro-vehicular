@@ -27,12 +27,17 @@ const initialCoverages = {
 const PlanPage = () => {
   const { userPlan, setUserPlan } = useUserPlanContext();
 
+  const [insuredAmount, setInsuredAmount] = useState(14300);
   const [monthlyAmount, setMonthlyAmount] = useState(20);
   const [exceeded, setExceeded] = useState(false);
   const [coverages, setCoverages] = useState(initialCoverages);
 
   const handleWant = () => {
-    const monthlyCoverages = { coverages: coverages, monthlyAmount };
+    const monthlyCoverages = {
+      coverages: coverages,
+      insuredAmount,
+      monthlyAmount,
+    };
     setUserPlan({ ...userPlan, monthlyCoverages });
   };
 
@@ -83,7 +88,13 @@ const PlanPage = () => {
                   </picture>
                 </div>
 
-                <Counter min={12500} max={16500} setExceeded={setExceeded} />
+                <Counter
+                  min={12500}
+                  max={16500}
+                  insuredAmount={insuredAmount}
+                  setInsuredAmount={setInsuredAmount}
+                  setExceeded={setExceeded}
+                />
               </div>
 
               <div className="card-data-amount">

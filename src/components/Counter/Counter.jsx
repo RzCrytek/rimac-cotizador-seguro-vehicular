@@ -5,22 +5,28 @@ import './Counter.scss';
 import IcoMenos from '../../images/icons/menos.svg';
 import IcoMas from '../../images/icons/mas.svg';
 
-const Counter = ({ min, max, setExceeded }) => {
-  const [amount, setAmount] = useState(14300);
+const Counter = ({
+  min,
+  max,
+  insuredAmount,
+  setInsuredAmount,
+  setExceeded,
+}) => {
+  // const [amount, setAmount] = useState(14300);
 
   useEffect(() => {
-    setExceeded(amount > 16000);
-  }, [amount, setExceeded]);
+    setExceeded(insuredAmount > 16000);
+  }, [insuredAmount, setExceeded]);
 
   const decrease = () => {
-    if (amount > min) {
-      setAmount((prev) => prev - 100);
+    if (insuredAmount > min) {
+      setInsuredAmount((prev) => prev - 100);
     }
   };
 
   const increase = () => {
-    if (amount < max) {
-      setAmount((prev) => prev + 100);
+    if (insuredAmount < max) {
+      setInsuredAmount((prev) => prev + 100);
     }
   };
 
@@ -40,7 +46,7 @@ const Counter = ({ min, max, setExceeded }) => {
         <input
           className="quantity"
           type="text"
-          value={`$${amount}`}
+          value={`$${insuredAmount}`}
           readOnly
           disabled
         />
