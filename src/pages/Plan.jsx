@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import { useUserPlanContext } from '../context/UserPlanContext';
@@ -26,11 +27,16 @@ const initialCoverages = {
 
 const PlanPage = () => {
   const { userPlan, setUserPlan } = useUserPlanContext();
+  const history = useHistory();
 
-  const [insuredAmount, setInsuredAmount] = useState(14300);
+  const [insuredAmount, setInsuredAmount] = useState(15900);
   const [monthlyAmount, setMonthlyAmount] = useState(20);
   const [exceeded, setExceeded] = useState(false);
   const [coverages, setCoverages] = useState(initialCoverages);
+
+  // console.log('exceeded:', exceeded);
+
+  console.log('coverages:', coverages);
 
   const handleWant = () => {
     const monthlyCoverages = {
@@ -39,6 +45,7 @@ const PlanPage = () => {
       monthlyAmount,
     };
     setUserPlan({ ...userPlan, monthlyCoverages });
+    history.push('/gracias');
   };
 
   return (
@@ -94,6 +101,9 @@ const PlanPage = () => {
                   insuredAmount={insuredAmount}
                   setInsuredAmount={setInsuredAmount}
                   setExceeded={setExceeded}
+                  setMonthlyAmount={setMonthlyAmount}
+                  coverages={coverages}
+                  setCoverages={setCoverages}
                 />
               </div>
 

@@ -45,7 +45,7 @@
       font-weight: 300;
       color: $gray-2;
       line-height: 28px;
-      margin: 16px 0 40px;
+      margin-block: 16px;
 
       a {
         font-weight: 400;
@@ -56,6 +56,7 @@
 
     .btn {
       max-width: 633px;
+      margin-top: 40px;
     }
   }
 }

@@ -11,12 +11,41 @@ const Counter = ({
   insuredAmount,
   setInsuredAmount,
   setExceeded,
+  setMonthlyAmount,
+  coverages,
+  setCoverages,
 }) => {
   // const [amount, setAmount] = useState(14300);
 
+  const [update, setUpdate] = useState(false);
+
   useEffect(() => {
-    setExceeded(insuredAmount > 16000);
-  }, [insuredAmount, setExceeded]);
+    const exceeded = insuredAmount > 16000;
+
+    setExceeded(exceeded);
+
+    if (!exceeded) setUpdate(false);
+
+    if (update) return;
+
+    if (exceeded && coverages['crash'].status) {
+      console.log('dentro');
+      setMonthlyAmount((prev) => prev - 20);
+
+      setCoverages({
+        ...coverages,
+        crash: { ...coverages['crash'], status: false },
+      });
+      setUpdate(true);
+    }
+  }, [
+    insuredAmount,
+    setExceeded,
+    setMonthlyAmount,
+    coverages,
+    setCoverages,
+    update,
+  ]);
 
   const decrease = () => {
     if (insuredAmount > min) {

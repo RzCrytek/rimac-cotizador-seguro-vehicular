@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useUserPlanContext } from '../context/UserPlanContext';
+
 import Layout from './_layout';
 import ImageThanks from '../images/thanks.png';
 
 const ThanksPage = () => {
+  const { userPlan } = useUserPlanContext();
+
   return (
     <Layout pageId="thanks">
       <div className="container">
@@ -22,15 +26,27 @@ const ThanksPage = () => {
           </h1>
 
           <p className="description">
-            Enviaremos la confirmación de compra de tu Plan Vehícular Tracking a
+            La suma asegurada escogida es de:{' '}
+            <strong>
+              ${(userPlan?.monthlyCoverages?.insuredAmount).toFixed(2)}
+            </strong>{' '}
+            <br />
+            Con un monto mensual a pagar de:{' '}
+            <strong>
+              ${(userPlan?.monthlyCoverages?.monthlyAmount).toFixed(2)}
+            </strong>
+          </p>
+
+          <p className="description">
+            Enviaremos la confirmación de compra de tu Plan Vehicular Tracking a
             tu correo:
             <br />
             <a
-              href="mailto:joel.sanchez@gmail.com"
+              href={`mailto:${userPlan?.email}`}
               target="_blank"
               rel="noreferrer"
             >
-              joel.sanchez@gmail.com
+              {userPlan?.email}
             </a>
           </p>
 
