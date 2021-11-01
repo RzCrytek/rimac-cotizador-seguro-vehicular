@@ -29,14 +29,10 @@ const PlanPage = () => {
   const { userPlan, setUserPlan } = useUserPlanContext();
   const history = useHistory();
 
-  const [insuredAmount, setInsuredAmount] = useState(15900);
+  const [insuredAmount, setInsuredAmount] = useState(14300);
   const [monthlyAmount, setMonthlyAmount] = useState(20);
   const [exceeded, setExceeded] = useState(false);
   const [coverages, setCoverages] = useState(initialCoverages);
-
-  // console.log('exceeded:', exceeded);
-
-  console.log('coverages:', coverages);
 
   const handleWant = () => {
     const monthlyCoverages = {

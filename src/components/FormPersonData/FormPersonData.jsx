@@ -33,7 +33,7 @@ const FormPersonData = ({ user }) => {
 
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)}>
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
 
       <div
         className={`form-group form-document ${errorField('document_number')}`}

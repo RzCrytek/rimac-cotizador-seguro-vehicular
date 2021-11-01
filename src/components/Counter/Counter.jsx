@@ -29,7 +29,6 @@ const Counter = ({
     if (update) return;
 
     if (exceeded && coverages['crash'].status) {
-      console.log('dentro');
       setMonthlyAmount((prev) => prev - 20);
 
       setCoverages({
