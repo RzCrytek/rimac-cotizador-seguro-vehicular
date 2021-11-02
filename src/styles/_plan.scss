@@ -3,6 +3,10 @@
 
   .container {
     display: flex;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
   }
 
   .aside {
@@ -12,6 +16,15 @@
     width: 100%;
     padding-top: 52px;
     margin-right: 8%;
+
+    @media (max-width: 991px) {
+      max-width: 160px;
+      margin-right: 5%;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
 
     &:before {
       content: '';
@@ -77,19 +90,64 @@
     width: 100%;
     padding: 48px 0 25%;
 
+    @media (max-width: 767px) {
+      padding-top: 0;
+      padding-bottom: 35%;
+    }
+
     .back {
       display: flex;
       align-items: center;
       font-size: 12px;
 
+      @media (max-width: 767px) {
+        padding-block: 12px;
+      }
+
       a {
+        display: flex;
+        align-items: center;
         color: $gray-3;
         text-decoration: none;
         letter-spacing: 0.6px;
+
+        img {
+          margin-right: 16px;
+          vertical-align: middle;
+        }
+
+        span {
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
       }
 
-      img {
-        margin-right: 16px;
+      .step-line {
+        display: none;
+
+        @media (max-width: 767px) {
+          display: flex;
+          width: 100%;
+          align-items: center;
+        }
+
+        p {
+          font-size: 10px;
+          font-weight: 700;
+          color: $gray-2;
+          margin: 0;
+          letter-spacing: 0.8px;
+          flex-shrink: 0;
+        }
+
+        .bar {
+          background-color: $acian-2;
+          width: 100%;
+          height: 6px;
+          border-radius: 20px;
+          margin-left: 16px;
+        }
       }
     }
 
@@ -97,6 +155,10 @@
       font-size: 40px;
       color: $gray-1;
       margin: 24px 0 8px;
+
+      @media (max-width: 600px) {
+        margin-top: 0;
+      }
     }
 
     .info {
@@ -107,6 +169,15 @@
       margin: 0;
     }
 
+    .card-data-box {
+      @media (max-width: 600px) {
+        background: $gray-7;
+        padding-top: 40px;
+        padding-inline: 32px;
+        margin-inline: -32px;
+      }
+    }
+
     .card-data {
       display: flex;
       justify-content: space-between;
@@ -114,12 +185,24 @@
       width: 100%;
       margin: 10px 0 55px;
 
+      @media (max-width: 600px) {
+        max-width: 100%;
+        margin-bottom: 0;
+      }
+
       &-information {
         max-width: 384px;
         width: 100%;
         padding-bottom: 43px;
         border-bottom: 1px solid $gray-5;
         margin-right: 10%;
+
+        @media (max-width: 600px) {
+          max-width: 100%;
+          padding-bottom: 0;
+          border-bottom: 0;
+          margin-right: 0;
+        }
 
         .car-info {
           display: flex;
@@ -130,6 +213,12 @@
           padding-left: 32px;
           padding-right: 20px;
           margin: 20px 0 55px;
+
+          @media (max-width: 600px) {
+            background-color: $white;
+            border-color: $white;
+            box-shadow: 0 0 10px 0 rgba($gray-3, 0.12%);
+          }
 
           .plate-brand {
             max-width: 192px;
@@ -167,6 +256,22 @@
         max-width: 224px;
         width: 100%;
 
+        @media (max-width: 600px) {
+          background: $white;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 100%;
+          width: 100%;
+          padding: 14px 32px;
+          box-shadow: 0 1px 4px 0 rgba($gray-3, 0.6%),
+            0 8px 30px 0 rgba(#142b7f, 0.1%);
+          z-index: 1;
+        }
+
         .text-mount {
           font-size: 12px;
           font-weight: bold;
@@ -174,6 +279,10 @@
           line-height: 16px;
           letter-spacing: 0.6px;
           margin: 0;
+
+          @media (max-width: 600px) {
+            display: none;
+          }
         }
 
         .price {
@@ -185,6 +294,15 @@
           border-bottom: 1px solid $gray-5;
           margin: 10px 0 24px;
 
+          @media (max-width: 600px) {
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: -0.2px;
+            padding: 0;
+            border: 0;
+            margin: 0;
+          }
+
           span {
             font-family: $font-roboto;
             display: block;
@@ -193,6 +311,16 @@
             color: $gray-2;
             line-height: 20px;
             letter-spacing: 0.2px;
+
+            @media (max-width: 600px) {
+              font-family: $font-roboto;
+              font-size: 10px;
+              font-weight: 700;
+              color: $gray-1;
+              line-height: 16px;
+              text-transform: uppercase;
+              letter-spacing: 0.8px;
+            }
           }
         }
 
@@ -202,11 +330,19 @@
           line-height: 24px;
           letter-spacing: 0.2px;
           margin: 0 0 12px;
+
+          @media (max-width: 600px) {
+            display: none;
+          }
         }
 
         ul {
           padding-left: 20px;
           margin: 0;
+
+          @media (max-width: 600px) {
+            display: none;
+          }
 
           li {
             list-style-image: url('../images/icons/check--green.svg');
@@ -220,6 +356,13 @@
         .btn {
           width: 100%;
           margin-top: 24px;
+
+          @media (max-width: 600px) {
+            max-width: 168px;
+            font-size: 12px;
+            padding-block: 16px;
+            margin-top: 0;
+          }
         }
       }
     }

@@ -66,61 +66,70 @@ const PlanPage = () => {
         <div className="wrapper">
           <div className="wrapper-content">
             <div className="back">
-              <img src={IcoBack} alt="Volver" />
-              <Link to="/">VOLVER</Link>
+              <Link to="/">
+                <img src={IcoBack} alt="Volver" />
+                <span>VOLVER</span>
+              </Link>
+
+              <div className="step-line">
+                <p>PASO 2 DE 2</p>
+                <div className="bar"></div>
+              </div>
             </div>
 
-            <h1>
-              ¡Hola, <span className="c-red">{userPlan?.name}!</span>
-            </h1>
+            <div className="card-data-box">
+              <h1>
+                ¡Hola, <span className="c-red">{userPlan?.name}!</span>
+              </h1>
 
-            <p className="info">Conoce las coberturas para tu plan</p>
+              <p className="info">Conoce las coberturas para tu plan</p>
 
-            <div className="card-data">
-              <div className="card-data-information">
-                <div className="car-info">
-                  <div className="plate-brand">
-                    <div className="plate-brand-content">
-                      <p className="plate">Placa: {userPlan?.placa}</p>
-                      <h3 className="brand">Wolkswagen 2019 Golf</h3>
+              <div className="card-data">
+                <div className="card-data-information">
+                  <div className="car-info">
+                    <div className="plate-brand">
+                      <div className="plate-brand-content">
+                        <p className="plate">Placa: {userPlan?.placa}</p>
+                        <h3 className="brand">Wolkswagen 2019 Golf</h3>
+                      </div>
                     </div>
+
+                    <picture>
+                      <img src={ImagePerson} alt="Persona" />
+                    </picture>
                   </div>
 
-                  <picture>
-                    <img src={ImagePerson} alt="Persona" />
-                  </picture>
+                  <Counter
+                    min={12500}
+                    max={16500}
+                    insuredAmount={insuredAmount}
+                    setInsuredAmount={setInsuredAmount}
+                    setExceeded={setExceeded}
+                    setMonthlyAmount={setMonthlyAmount}
+                    coverages={coverages}
+                    setCoverages={setCoverages}
+                  />
                 </div>
 
-                <Counter
-                  min={12500}
-                  max={16500}
-                  insuredAmount={insuredAmount}
-                  setInsuredAmount={setInsuredAmount}
-                  setExceeded={setExceeded}
-                  setMonthlyAmount={setMonthlyAmount}
-                  coverages={coverages}
-                  setCoverages={setCoverages}
-                />
-              </div>
+                <div className="card-data-amount">
+                  <p className="text-mount">MONTO</p>
 
-              <div className="card-data-amount">
-                <p className="text-mount">MONTO</p>
+                  <h2 className="price">
+                    ${monthlyAmount.toFixed(2)} <span>mensuales</span>
+                  </h2>
 
-                <h2 className="price">
-                  ${monthlyAmount.toFixed(2)} <span>mensuales</span>
-                </h2>
+                  <p className="text-includes">El precio incluye:</p>
 
-                <p className="text-includes">El precio incluye:</p>
+                  <ul>
+                    <li>Llanta de respuesto</li>
+                    <li>Analisis de motor</li>
+                    <li>Aros gratis</li>
+                  </ul>
 
-                <ul>
-                  <li>Llanta de respuesto</li>
-                  <li>Analisis de motor</li>
-                  <li>Aros gratis</li>
-                </ul>
-
-                <button className="btn" type="button" onClick={handleWant}>
-                  LO QUIERO
-                </button>
+                  <button className="btn" type="button" onClick={handleWant}>
+                    LO QUIERO
+                  </button>
+                </div>
               </div>
             </div>
 
