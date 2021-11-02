@@ -28,12 +28,12 @@ const ThanksPage = () => {
           <p className="description">
             La suma asegurada escogida es de:{' '}
             <strong>
-              ${(userPlan?.monthlyCoverages?.insuredAmount).toFixed(2)}
+              ${userPlan?.monthlyCoverages?.insuredAmount.toFixed(2)}
             </strong>{' '}
             <br />
             Con un monto mensual a pagar de:{' '}
             <strong>
-              ${(userPlan?.monthlyCoverages?.monthlyAmount).toFixed(2)}
+              ${userPlan?.monthlyCoverages?.monthlyAmount.toFixed(2)}
             </strong>
           </p>
 
@@ -53,6 +53,8 @@ const ThanksPage = () => {
           <Link className="btn" to="#!">
             CÓMO USAR MI SEGURO
           </Link>
+
+          <div className="copy">© 2021 RIMAC Seguros y Reaseguros.</div>
         </div>
       </div>
     </Layout>

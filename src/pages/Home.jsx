@@ -5,6 +5,7 @@ import FormPersonData from '../components/FormPersonData/FormPersonData';
 import useFetchUsers from '../hooks/useFetchUsers';
 
 import ImageCartGirl from '../images/home-information-cart-girl.svg';
+import ImageCartGirlMobile from '../images/home-information-cart-girl--mobile.svg';
 
 const HomePage = () => {
   const users = useFetchUsers('https://jsonplaceholder.typicode.com/users');
@@ -26,7 +27,16 @@ const HomePage = () => {
         <section className="col information">
           <div className="information-content">
             <picture>
-              <img src={ImageCartGirl} alt="Carro y una chica" />
+              <img
+                className="img img-desktop"
+                src={ImageCartGirl}
+                alt="Carro y una chica"
+              />
+              <img
+                className="img img-mobile"
+                src={ImageCartGirlMobile}
+                alt="Carro y una chica"
+              />
             </picture>
 
             <p className="sub-title">¡NUEVO!</p>

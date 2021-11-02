@@ -15,8 +15,6 @@ const Counter = ({
   coverages,
   setCoverages,
 }) => {
-  // const [amount, setAmount] = useState(14300);
-
   const [update, setUpdate] = useState(false);
 
   useEffect(() => {

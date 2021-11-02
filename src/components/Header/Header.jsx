@@ -21,7 +21,8 @@ const Header = ({ home }) => {
             <p>¿Tienes alguna duda?</p>
             <a href="tel:014116001" target="_blank" rel="noreferrer">
               <img src={IconPhone} alt="Teléfono" />
-              (01) 411 6001
+              <span className="number">(01) 411 6001</span>
+              <span className="text">Llámanos</span>
             </a>
           </div>
         </div>

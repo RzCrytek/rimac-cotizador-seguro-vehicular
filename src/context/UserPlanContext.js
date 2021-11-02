@@ -5,8 +5,6 @@ const UserPlanContext = React.createContext();
 export const UserPlanProvider = ({ children }) => {
   const [userPlan, setUserPlan] = useState({});
 
-  console.log('userPlan:', userPlan);
-
   const value = {
     userPlan,
     setUserPlan,

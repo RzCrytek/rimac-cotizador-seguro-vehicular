@@ -12,7 +12,6 @@ const FormPersonData = ({ user }) => {
   const history = useHistory();
 
   const {
-    watch,
     register,
     formState: { errors },
     handleSubmit,
@@ -33,8 +32,6 @@ const FormPersonData = ({ user }) => {
 
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)}>
-      {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
-
       <div
         className={`form-group form-document ${errorField('document_number')}`}
       >

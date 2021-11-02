@@ -15,6 +15,12 @@ body {
 
 main {
   min-height: calc(100vh - 64px);
+
+  @media (max-width: 767px) {
+    // min-height: calc(100vh - 56px);
+    min-height: auto;
+    height: auto;
+  }
 }
 
 .container {
@@ -26,4 +32,11 @@ main {
 
 .c-red {
   color: $red-1;
+}
+
+.copy {
+  font-size: 12px;
+  color: $gray-3;
+  line-height: 20px;
+  letter-spacing: 0.2px;
 }

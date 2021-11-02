@@ -3,13 +3,44 @@
   align-items: center;
   padding-block: 5%;
 
+  @media (max-width: 767px) {
+    padding-block: 0;
+  }
+
   .container {
     display: flex;
     align-items: center;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
   }
 
   .image {
     margin-right: 11.5%;
+
+    @media (max-width: 991px) {
+      margin-right: 5%;
+    }
+
+    @media (max-width: 767px) {
+      height: 360px;
+      margin-right: 0;
+    }
+
+    @media (max-width: 600px) {
+      background: url('../images/thanks-bg-mobile.svg') top center no-repeat;
+      background-size: cover;
+      margin-inline: -32px;
+    }
+
+    @media (max-width: 450px) {
+      height: 250px;
+    }
+
+    @media (max-width: 360px) {
+      height: 208px;
+    }
 
     &:before {
       content: '';
@@ -20,11 +51,25 @@
       left: 0;
       background-color: $gray-7;
       z-index: -1;
+
+      @media (max-width: 767px) {
+        content: initial;
+      }
     }
 
     picture {
+      @media (max-width: 600px) {
+        display: none;
+      }
+
       img {
         max-width: 100%;
+
+        @media (max-width: 767px) {
+          display: block;
+          height: 100%;
+          margin-inline: auto;
+        }
       }
     }
   }
@@ -33,11 +78,20 @@
     max-width: 480px;
     width: 100%;
 
+    @media (max-width: 767px) {
+      padding-top: 48px;
+      margin-inline: auto;
+    }
+
     h1 {
       font-size: 36px;
       color: $gray-1;
       font-weight: 400;
       margin: 0;
+
+      @media (max-width: 767px) {
+        font-size: 28px;
+      }
     }
 
     .description {
@@ -57,6 +111,24 @@
     .btn {
       max-width: 633px;
       margin-top: 40px;
+
+      @media (max-width: 767px) {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    .copy {
+      display: none;
+
+      @media (max-width: 767px) {
+        display: block;
+        padding-block: 26px;
+        padding-inline: 32px;
+        margin-top: 56px;
+        margin-inline: -32px;
+        border-top: 1px solid $gray-5;
+      }
     }
   }
 }
