@@ -8,7 +8,7 @@ import ImageCartGirl from '../images/home-information-cart-girl.svg';
 import ImageCartGirlMobile from '../images/home-information-cart-girl--mobile.svg';
 
 const HomePage = () => {
-  const users = useFetchUsers('https://jsonplaceholder.typicode.com/users');
+  const users = useFetchUsers(process.env.REACT_APP_JSONPLACEHOLDER_API);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
